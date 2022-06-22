@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Assignment</h1>
+    <br />
+    <p class="lead"> by Oikonomou Nikos</p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Model</h2>
+        <hr />
+        <p>
+            In this application there are two models: Employee and Manager.
+            Realtion amongst them is one to many (a manager has can have many employees while
+            an employee has one Manager).
+            Where we implement a full C.R.U.D. operation.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Seed method</h2>
+        <hr />
+        <p>
+            As soon as we run the application we drop and create the database automatic.
+            The seed Method is located in MyContext folder, Inside Initializers folder in MockupDbInitializer class.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Validations</h2>
+        <hr />
+        <p>
+            Our models has input validation above it's properties declaration.
+            In create and edit view there is one more validation to make first
+            letter capital in both Firstname and Lastname input fields.
+            (Taking advantage of System.ComponentModel.DataAnnotations)
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Filter</h2>
+        <hr />
+        <p>
+           Option to filter Employees based on their country or Lastname
+        </p>
+    </div>
+</div>

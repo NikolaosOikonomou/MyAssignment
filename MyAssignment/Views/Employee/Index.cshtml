@@ -1,0 +1,113 @@
+﻿@model IEnumerable<MyAssignment.Models.Employee>
+@using MyAssignment.Models.Enums
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> @TempData["message"]
+    </div>
+}
+<br />
+
+@Html.ActionLink("Create Employee", "Create", null, new { @class = "btn btn-primary btn-lg" })
+<br />
+<br />
+
+
+
+
+<form class="form-inline">
+
+    @{
+        var countries = Enum.GetNames(typeof(Country));
+    }
+    <div class="form-group mb-2">
+
+        <select name="searchCountry" class="form-control">
+
+            @if (ViewBag.currentCountry == null)
+            {
+                <option value="">Nationaillity</option>
+                foreach (var country in countries)
+                {
+
+                    <option>@country</option>
+                }
+            }
+            else
+            {
+                <option value="">All</option>
+                foreach (var country in countries)
+                {
+                    if (country == ViewBag.currentCountry)
+                    {
+                        <option selected>@country</option>
+                    }
+                    else
+                    {
+                        <option> @country </option>
+                    }
+                }
+            }
+        </select>
+
+    </div>
+    <div class="form-group mx-sm-3">
+        <input type="text" name="searchName" value="@ViewBag.currentLastName" placeholder="Search Lastname" class="form-control" />
+    </div>
+    <input type="submit" value="Search Employee" class="btn btn-justified"/>
+</form>
+
+
+
+
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Country</th>
+            <th>Manager</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+
+                <td>@Html.DisplayFor(m => employee.FirstName)</td>
+                <td>@Html.DisplayFor(m => employee.LastName)</td>
+                <td>@Html.DisplayFor(m => employee.Age)</td>
+                <td>@Html.DisplayFor(m => employee.Salary)</td>
+                <td>@Html.DisplayFor(m => employee.Country)</td>
+                <td>@Html.DisplayFor(m => employee.Manager.LastName)</td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = employee.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = employee.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = employee.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<style>
+    .filters input {
+        display: inline;
+    }
+</style>
+
+

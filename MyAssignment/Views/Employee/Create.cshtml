@@ -1,0 +1,63 @@
+﻿@model MyAssignment.Models.Employee
+@using MyAssignment.Models
+@using MyAssignment.Models.Enums
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>New Employee</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName)
+        @Html.EditorFor(m => m.FirstName, new { HtmlAttributes = new { @class = "form-control", placeholder = "Firstname" } })
+        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName)
+        @Html.EditorFor(m => m.LastName, new { HtmlAttributes = new { @class = "form-control", placeholder = "Lastname" } })
+        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Age)
+        @Html.EditorFor(m => m.Age, new { HtmlAttributes = new { @class = "form-control", placeholder = "Age", } })
+        @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Salary)
+        @Html.EditorFor(m => m.Salary, new { HtmlAttributes = new { @class = "form-control", placeholder = "Salary", } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Country)
+        @Html.EnumDropDownListFor(m => m.Country, "Nationality", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="managers">Select Manager</label>
+        <select id="managers" name="managerId" class="form-control">
+            <option></option>
+            @foreach (var item in ViewBag.Managers as List<Manager>)
+            {
+                <option value="@item.Id">@item.LastName</option>
+            }
+        </select>
+    </div>
+
+    <input type="submit" value="Create" class="btn btn-success" />
+    <a href="/Employee/Create" class="btn btn-primary">Reset</a>
+    @Html.ActionLink("Back", "Index", "", new { @class = "btn btn-primary" })
+
+</form>
+<style>
+    .form-control {
+        text-transform: capitalize;
+    }
+</style>
+
+
