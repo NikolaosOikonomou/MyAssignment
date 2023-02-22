@@ -1,0 +1,66 @@
+﻿@model MyAssignment.Models.Employee
+@using MyAssignment.Models
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Trainer</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken();
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName)
+        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give your firstname" } })
+        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName)
+        @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Give your lastname" } })
+        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Age)
+        @Html.EditorFor(m => m.Age, new { htmlAttributes = new { @class = "form-control", placeholder = "Give your age" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Salary)
+        @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control", placeholder = "Give your salary" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Country)
+        @Html.EnumDropDownListFor(m => m.Country, new { @class = "form-control", placeholder = "Employee's Nationality" })
+    </div>
+
+    <div class="form-group">
+        <label for="managers">Select Manager</label>
+        <select id="managers" name="managerId" class="form-control">
+            @foreach (var manager in ViewBag.Managers as List<Manager>)
+            {
+                if (manager.Id == Model.ManagerId)
+                {
+                    <option selected value="@manager.Id">@manager.LastName</option>
+                }
+                else
+                {
+                    <option value="@manager.Id">@manager.LastName</option>
+                }
+
+            }
+        </select>
+    </div>
+
+    <input type="submit" value="Update" class="btn btn-success" />
+    @Html.ActionLink("Back", "Index", "", new { @class = "btn btn-primary" })
+
+</form>
+
+<style>
+    .form-control {
+        text-transform: capitalize;
+    }
+</style>

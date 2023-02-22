@@ -1,0 +1,50 @@
+﻿@model MyAssignment.Models.Manager
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br />
+<h3>Are you sure you want to Delete this Manager?</h3>
+
+
+<form method="post">
+    <br />
+    <div>
+        @Html.AntiForgeryToken()
+        <div>
+            <strong>First Name :</strong>
+            <span>@Model.FirstName</span>
+            <br />
+        </div>
+
+        <div>
+            <strong>Last Name :</strong>
+            <span>@Model.LastName</span>
+            <br />
+        </div>
+
+        <div>
+            <strong>Age :</strong>
+            <span>@Model.Age</span>
+            <br />
+        </div>
+
+        <div>
+            <strong>Subject :</strong>
+            <span>@Model.Salary</span>
+            <br />
+        </div>
+    </div>
+
+    <br />
+    <div>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        @Html.ActionLink("Back", "Index", "", new { @class = "btn btn-primary" })
+    </div>
+</form>
+
+
+
+
+

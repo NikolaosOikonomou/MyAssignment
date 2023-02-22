@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MyAssignment.Models.Manager>
+@using MyAssignment.Models.Enums
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+@Html.ActionLink("Create Manager", "Create", null, new { @class = "btn btn-primary btn-lg" })
+<br />
+<br />
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> @TempData["message"]
+    </div>
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Country</th>
+            <th>Employees</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var manager in Model)
+        {
+            <tr>
+
+                <td>@Html.DisplayFor(m => manager.FirstName)</td>
+                <td>@Html.DisplayFor(m => manager.LastName)</td>
+                <td>@Html.DisplayFor(m => manager.Age)</td>
+                <td>@Html.DisplayFor(m => manager.Salary)</td>
+                <td>@Html.DisplayFor(m => manager.Country)</td>
+
+                <td>
+                    <ul>
+                        @foreach (var employee in manager.Employees)
+                        {
+                            <li>@employee.LastName</li>
+                        }
+                    </ul>
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = manager.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = manager.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = manager.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+

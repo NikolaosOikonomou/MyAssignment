@@ -30,7 +30,7 @@ namespace MyAssignment.Repositories
 
 
         /// <summary>
-        /// Getting Employees plus the assisiate Managers with Eager Loading
+        /// Getting Employees plus the assosiate Managers with Eager Loading
         /// </summary>
         /// <returns></returns>
         public List<Employee> GetAllWithManagers()

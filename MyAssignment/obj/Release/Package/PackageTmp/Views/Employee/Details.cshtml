@@ -1,0 +1,54 @@
+﻿@model MyAssignment.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Trainer's Details</h2>
+
+<br />
+<div>
+    <div>
+        <strong>First Name :</strong>
+        <span>@Model.FirstName</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Last Name :</strong>
+        <span>@Model.LastName</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Age :</strong>
+        <span>@Model.Age</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Subject :</strong>
+        <span>@Model.Salary</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Country :</strong>
+        <span>@Model.Country</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Manager :</strong>
+        <span>@(Model.Manager?.LastName)</span>
+        <br />
+    </div>
+</div>
+
+<br />
+<div>
+    @Html.ActionLink("Back", "Index", "", new { @class = "btn btn-primary" })
+</div>
+
+
+

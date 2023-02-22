@@ -1,0 +1,61 @@
+﻿@model MyAssignment.Models.Manager
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Manager's Details</h2>
+
+<br />
+<div class="container">
+    <div>
+        <strong>First Name :</strong>
+        <span>@Model.FirstName</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Last Name :</strong>
+        <span>@Model.LastName</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Age :</strong>
+        <span>@Model.Age</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Subject :</strong>
+        <span>@Model.Salary</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Country :</strong>
+        <span>@Model.Country</span>
+        <br />
+    </div>
+
+    <div>
+        <strong>Employees :</strong>
+        <ul>
+            @foreach (var employee in Model.Employees)
+            {
+                <li>@employee.LastName</li>
+            }
+
+        </ul>
+
+        <br />
+    </div>
+</div>
+
+<br />
+<div>
+    @Html.ActionLink("Back", "Index", "", new { @class = "btn btn-primary" })
+</div>
+
+
+

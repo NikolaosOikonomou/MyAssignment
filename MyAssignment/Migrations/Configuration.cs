@@ -11,12 +11,12 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MyAssignment.MyContext.ApplicationContext context)
-        {
+        //protected override void Seed(MyAssignment.MyContext.ApplicationContext context)
+        //{
             
-        }
+        //}
     }
 }

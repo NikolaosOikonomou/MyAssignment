@@ -81,3 +81,5 @@ C:\Users\Nikos\source\repos\MyAssignment\MyAssignment\obj\Debug\MyAssignment.csp
 C:\Users\Nikos\source\repos\MyAssignment\MyAssignment\obj\Debug\MyAssignment.csproj.CopyComplete
 C:\Users\Nikos\source\repos\MyAssignment\MyAssignment\obj\Debug\MyAssignment.dll
 C:\Users\Nikos\source\repos\MyAssignment\MyAssignment\obj\Debug\MyAssignment.pdb
+C:\Users\Nikos\source\repos\MyAssignment\MyAssignment\obj\Debug\MyAssignment.Migrations.SeedTables.resources
+C:\Users\Nikos\source\repos\MyAssignment\MyAssignment\obj\Debug\MyAssignment.csproj.GenerateResource.cache

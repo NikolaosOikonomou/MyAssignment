@@ -13,8 +13,8 @@ namespace MyAssignment.MyContext
     {
         public ApplicationContext() : base("Sindesmos")
         {
-            Database.SetInitializer<ApplicationContext>(new MockupDbInitializer());
-            Database.Initialize(false);
+            //Database.SetInitializer<ApplicationContext>(new MockupDbInitializer());
+            //Database.Initialize(false);
         }
 
         public DbSet<Employee> Employees { get; set; }
